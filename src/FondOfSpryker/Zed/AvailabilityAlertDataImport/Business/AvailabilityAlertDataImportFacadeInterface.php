@@ -1,6 +1,6 @@
 <?php
 
-namespace FondOfSpryker\Zed\AvailabilityAlerDataImport\Business;
+namespace FondOfSpryker\Zed\AvailabilityAlertDataImport\Business;
 
 use Generated\Shared\Transfer\DataImporterConfigurationTransfer;
 use Generated\Shared\Transfer\DataImporterReportTransfer;

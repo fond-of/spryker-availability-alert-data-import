@@ -1,6 +1,6 @@
 <?php
 
-namespace FondOfSpryker\Zed\AvailabilityAlerDataImport;
+namespace FondOfSpryker\Zed\AvailabilityAlertDataImport;
 
 use Spryker\Zed\DataImport\DataImportDependencyProvider;
 
