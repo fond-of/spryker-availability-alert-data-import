@@ -1,0 +1,1 @@
+# spryker-availability-alert-data-import
