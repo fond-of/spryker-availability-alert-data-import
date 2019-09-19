@@ -22,7 +22,7 @@
   ],
   "require": {
     "php": ">=7.1",
-    "fond-of-spryker/availability-alert": "^2.0.1",
+    "fond-of-spryker/availability-alert": "dev-spryker_upgrade",
     "spryker/data-import": "^1.7.2",
     "spryker/kernel": "^3.37.5",
     "spryker/propel-orm": "^1.9.0"
