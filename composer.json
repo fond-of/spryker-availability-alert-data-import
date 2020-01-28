@@ -21,11 +21,11 @@
     }
   ],
   "require": {
-    "php": ">=7.1",
+    "php": ">=7.2",
     "fond-of-spryker/availability-alert": "dev-spryker_upgrade",
-    "spryker/data-import": "^1.7.2",
-    "spryker/kernel": "^3.37.5",
-    "spryker/propel-orm": "^1.9.0"
+    "spryker/data-import": "^1.8.0",
+    "spryker/kernel": "^3.42.4",
+    "spryker/propel-orm": "^1.9.1"
   },
   "require-dev": {
     "spryker/code-sniffer": "^0.14.7",
