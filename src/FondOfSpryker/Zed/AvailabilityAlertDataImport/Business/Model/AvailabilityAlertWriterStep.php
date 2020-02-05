@@ -3,11 +3,8 @@
 namespace FondOfSpryker\Zed\AvailabilityAlertDataImport\Business\Model;
 
 use Exception;
-use Orm\Zed\AvailabilityAlert\Persistence\FosAvailabilityAlertSubscription;
-use FondOfSpryker\Zed\AvailabilityAlertDataImport\Business\Model\Reader\AvailabilityAlertRateReaderInterface;
 use Orm\Zed\AvailabilityAlert\Persistence\FosAvailabilityAlertSubscriptionQuery;
 use Orm\Zed\Locale\Persistence\SpyLocaleQuery;
-use Orm\Zed\Product\Persistence\SpyProductAbstract;
 use Orm\Zed\Product\Persistence\SpyProductAbstractQuery;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\DataImportStepInterface;
 use Spryker\Zed\DataImport\Business\Model\DataImportStep\PublishAwareStep;
@@ -18,16 +15,16 @@ use Spryker\Zed\DataImport\Business\Model\DataSet\DataSetInterface;
  */
 class AvailabilityAlertWriterStep extends PublishAwareStep implements DataImportStepInterface
 {
-    const BULK_SIZE = 100;
+    public const BULK_SIZE = 100;
 
-    const KEY_EMAIL = 'email';
-    const KEY_PRODUCT_ABSTRACT_SKU = 'product_abstract_sku';
-    const KEY_LOCALE = 'locale';
-    const KEY_SENT_AT = 'sent_at';
-    const KEY_STATUS = 'status';
+    public const KEY_EMAIL = 'email';
+    public const KEY_PRODUCT_ABSTRACT_SKU = 'product_abstract_sku';
+    public const KEY_LOCALE = 'locale';
+    public const KEY_SENT_AT = 'sent_at';
+    public const KEY_STATUS = 'status';
 
-    const KEY_FK_PRODUCT_ABSTRACT = 'fk_product_abstract';
-    const KEY_FK_LOCALE = 'fk_locale';
+    public const KEY_FK_PRODUCT_ABSTRACT = 'fk_product_abstract';
+    public const KEY_FK_LOCALE = 'fk_locale';
 
     /**
      * @var int[] Keys are locale name values are locale ids.
@@ -56,7 +53,6 @@ class AvailabilityAlertWriterStep extends PublishAwareStep implements DataImport
      */
     protected function findOrCreateAvailabilityAlert(DataSetInterface $dataSet)
     {
-
         $dataSet[static::KEY_FK_PRODUCT_ABSTRACT] = $this->getProductAbstractIdBySku($dataSet[static::KEY_PRODUCT_ABSTRACT_SKU]);
         $dataSet[static::KEY_FK_LOCALE] = $this->getLocaleByName($dataSet[static::KEY_LOCALE]);
 
@@ -64,7 +60,6 @@ class AvailabilityAlertWriterStep extends PublishAwareStep implements DataImport
             ->filterByEmail($dataSet[static::KEY_EMAIL])
             ->filterByFkProductAbstract($dataSet[static::KEY_FK_PRODUCT_ABSTRACT])
             ->findOneOrCreate();
-
 
         if ($availabilityAlertEntity->isNew() || $availabilityAlertEntity->isModified()) {
             try {
@@ -78,23 +73,21 @@ class AvailabilityAlertWriterStep extends PublishAwareStep implements DataImport
                 $availabilityAlertEntity->setStatus($dataSet[static::KEY_STATUS]);
 
                 $availabilityAlertEntity->save();
-
-            }catch (Exception $e) {
-                print $e->getMessage(); exit();
+            } catch (Exception $e) {
+                print $e->getMessage();
+                exit();
             }
-
         }
 
         return $availabilityAlertEntity;
-
     }
 
     /**
-     * @param string $countryIso2Code
+     * @param string $sku
      *
      * @return int
      */
-    protected function getProductAbstractIdBySku($sku): int
+    protected function getProductAbstractIdBySku(string $sku): int
     {
         if (!isset(static::$productAbstractIdsCache[$sku])) {
             static::$productAbstractIdsCache[$sku] = SpyProductAbstractQuery::create()
@@ -106,11 +99,11 @@ class AvailabilityAlertWriterStep extends PublishAwareStep implements DataImport
     }
 
     /**
-     * @param string $countryIso2Code
+     * @param string $name
      *
      * @return int
      */
-    protected function getLocaleByName($name): int
+    protected function getLocaleByName(string $name): int
     {
         if (!isset(static::$localeIdsCache[$name])) {
             static::$localeIdsCache[$name] = SpyLocaleQuery::create()

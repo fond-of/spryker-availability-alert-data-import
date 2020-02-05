@@ -2,7 +2,6 @@
 
 namespace FondOfSpryker\Zed\AvailabilityAlertDataImport\Business;
 
-use FondOfSpryker\Zed\AvailabilityAlertDataImport\Business\Model\Reader\AvailabilityAlertReader;
 use FondOfSpryker\Zed\AvailabilityAlertDataImport\Business\Model\AvailabilityAlertWriterStep;
 use Spryker\Zed\DataImport\Business\DataImportBusinessFactory;
 

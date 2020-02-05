@@ -2,13 +2,14 @@
 
 namespace FondOfSpryker\Zed\AvailabilityAlertDataImport\Communication\Plugin;
 
-use Generated\Shared\Transfer\DataImporterConfigurationTransfer;
 use FondOfSpryker\Zed\AvailabilityAlertDataImport\AvailabilityAlertDataImportConfig;
+use Generated\Shared\Transfer\DataImporterConfigurationTransfer;
 use Spryker\Zed\DataImport\Dependency\Plugin\DataImportPluginInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 
 /**
- * @method \Spryker\Zed\AvailabilityAlertDataImport\Business\AvailabilityAlertDataImportFacadeInterface getFacade()
+ * @method \FondOfSpryker\Zed\AvailabilityAlertDataImport\Business\AvailabilityAlertDataImportFacadeInterface getFacade()
+ * @method \FondOfSpryker\Zed\AvailabilityAlertDataImport\AvailabilityAlertDataImportConfig getConfig()
  */
 class AvailabilityAlertDataImportPlugin extends AbstractPlugin implements DataImportPluginInterface
 {

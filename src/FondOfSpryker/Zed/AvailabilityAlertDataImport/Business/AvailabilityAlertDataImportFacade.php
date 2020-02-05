@@ -2,7 +2,6 @@
 
 namespace FondOfSpryker\Zed\AvailabilityAlertDataImport\Business;
 
-use FondOfSpryker\Zed\AvailabilityAlertDataImport\Business\AvailabilityAlertDataImportFacadeInterface;
 use Generated\Shared\Transfer\DataImporterConfigurationTransfer;
 use Generated\Shared\Transfer\DataImporterReportTransfer;
 use Spryker\Zed\Kernel\Business\AbstractFacade;
@@ -15,7 +14,7 @@ use Spryker\Zed\Kernel\Business\AbstractFacade;
 class AvailabilityAlertDataImportFacade extends AbstractFacade implements AvailabilityAlertDataImportFacadeInterface
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @api
      *
